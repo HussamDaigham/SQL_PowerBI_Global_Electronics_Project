@@ -1,0 +1,21 @@
+# VS Code local settings
+.vscode/
+
+# Windows system files
+Thumbs.db
+Desktop.ini
+
+# Power BI temporary files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+*.tmp
+~$*
+
+# Temporary exports
+temp/
+exports/
+
+# Local credentials
+.env
+.env.*
+!.env.example
