@@ -111,7 +111,7 @@ I wrote and ran most of the SQL in VS Code against a local PostgreSQL database. 
 2. Go to **File > Options and settings > Data source settings**. Select the PostgreSQL connection and use **Change Source** to enter your server and database. If those fields are unavailable there, update the PostgreSQL **Source** step in Power Query and select **Close & Apply**.
 3. Enter your PostgreSQL credentials when prompted, then select **Home > Refresh**. With the report slicers cleared, Sales Overview should show about **$55.76M estimated revenue** and **26.3K orders** (26,326 in SQL).
 
-To rebuild the model from a blank report, use **Get data > PostgreSQL database** in **Import** mode. Load the seven reporting views listed above and the `core.customers`, `core.products`, and `core.stores` tables.
+To import the source tables into a blank report, use **Get data > PostgreSQL database** in **Import** mode. Load the seven reporting views listed above and the `core.customers`, `core.products`, and `core.stores` tables.
 
 ### Reporting Views
 
@@ -230,7 +230,7 @@ Compares full-period and holiday-season performance by category. Users can filte
 ![Product Performance](images/product_performance.png)
 
 ### Customer Behavior
-The 90-day repeat purchase rate was 9.12% among 11,745 eligible customers. Among the 7,272 customers with values for both orders, the second order averaged $142.30 less, though 48.38% spent more.
+The 90-day repeat purchase rate was 9.12% among 11,745 eligible customers. Among the 7,272 customers with values for both orders, the second order averaged $142.25 less, though 48.38% spent more.
 
 ![Customer Behavior](images/customer_behavior.png)
 
@@ -248,18 +248,21 @@ The 65 eligible physical stores generated $7.13M in estimated 2020 revenue. Stor
 ## Key Findings
 
 - **Sales:**
+    - Physical-store orders fell from 7,077 in 2019 to 3,564 in 2020 while AOV stayed near $2,028.
     - Estimated Revenue: $55.76M
     - Gross Profit: $32.66M
     - Margin: 58.6%
+    - 2019 led in orders (9,083) and estimated revenue ($18.26M).
     - Average Order Value: $2,118
     - Number of Orders: 26.3K
-    - Physical stores dominate online, and 2019 was the peak year.
+    - Physical stores dominate online.
 - **Products**:
     - Computers lead by far at $11.28M gross profit, then Home Appliances at $6.30M.
     - Profit is concentrated — the top 10 products are 44.90% of TV and Video gross profit.
 - **Customers**:
-    - Only 9.12% repeat within 90 days, but among repeat customers 48.38% spent more on their second order.
-    - Average first order $2,224.30 vs. second $2,082.00.
+    - Only 9.12% repeat within 90 days,
+    - Among the 7,272 customers with 2 recorded orders, 48.38% spent more on their second order.
+    - Average first order $2,224.29 vs. $2,082.04 for second order, $142.25 difference.
 - **Delivery:**
     - 5,580 delivered online orders, 91.54% within 7 days.
     - 90th-percentile is 7 days in six countries, 8 days in Canada and the UK.
@@ -274,20 +277,21 @@ The 65 eligible physical stores generated $7.13M in estimated 2020 revenue. Stor
 - 2021 data is only through Feb 20.
 - Delivery is delivered online orders only.
 - Repeat rate is eligible customers with a full 90-day window only.
-- Store Performance is 2020 eligible stores only.
+- Store Performance is 2020 eligible stores only. Eligibility refers to physical stores with positive floor area that opened on or before January 1, 2019. Of the 65 eligible stores, 51 had recorded revenue in 2020.
+- The overall revenue-per-square-meter benchmark ($99.32/square meter) is calculated using the combined revenue and floor area of those 51 stores, excluding eligible stores without recorded revenue.
 - Monthly sales analysis revealed recurring sharp revenue declines in April from 2016 through 2020. Physical-store orders were recorded on only 4–7 distinct days during April each year, suggesting potentially uneven transaction coverage. Without additional source documentation, these declines cannot confidently be attributed to normal seasonal demand.
 
 ## Conclusion
 
-Overall, this was a physical-store-led business with concentrated profit, reliable delivery, and weak repeat purchase.
+Overall, the analysis revealed a business heavily reliant on physical-store sales, with gross profit concentrated in certain product categories, generally consistent delivery performance, and a relatively low 90-day repeat purchase rate.
 
-Sales grew to a peak in 2019, driven by a small set of categories and products. Most customers did not return within 90 days, but those who did often spent more on their second order, suggesting retention — not acquisition — is the main growth lever. Delivery was generally reliable, and store performance varied more by efficiency than by size.
+Sales peaked in 2019 before declining in 2020, primarily due to a significant reduction in physical-store order volume rather than average order value. Only 9.12% of eligible customers made another purchase within 90 days, highlighting an opportunity to investigate customer retention. Product profitability varied across categories, while store rankings differed depending on whether performance was measured by total revenue or revenue per square meter.
 
-In short, the opportunity is less about selling more products or opening more stores, and more about keeping the customers and profit drivers the business already has, and learning from its most efficient stores.
+These findings highlight several areas worth investigating further, including the factors behind declining sales, opportunities to encourage repeat purchases, and differences in product and store performance. Together, they provide a foundation for more targeted business decisions and future analysis.
 
 ## Recommendations
 
-- **Investigate retention first.** With only 9.12% of customers returning within 90 days, find out what stops the other 90.88% — and test a second-order follow-up, since 48.38% of repeat customers spent more the second time.
+- **Test a first-time buyer follow-up campaign.** With a historical 90-day repeat purchase rate of 9.12% among eligible customers, test a targeted follow-up offer for first-time buyers. Divide customers into a treatment group receiving the offer and a control group receiving no additional outreach. Compare their 90-day repeat purchase rates to evaluate the campaign's effectiveness, using the historical 9.12% rate as a baseline.
 - **Protect the profit drivers.** Computers ($11.28M gross profit) and Home Appliances ($6.30M) carry the result, so monitor their availability, pricing, and assortment closely — and look into why TV and Video profit is so concentrated in its top 10 products.
 - **Chase the delivery long tail.** Overall delivery is reliable at 91.54% within seven days, but some orders took up to 17 days, and Canada and the UK sit at an eight-day 90th percentile. Investigate those outliers by country and carrier before promising faster delivery.
 - **Learn from Store 66, not just Store 50.** Judge stores on revenue per square meter as well as total revenue, and study what Store 66 does differently at $244.18 per square meter versus $99.32 overall.
