@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This independent portfolio project uses PostgreSQL and Power BI to analyze a fictional global electronics retailer. The five report pages cover sales across online and physical stores, product profitability, customer repeat purchases, online delivery times, and store productivity.
+## Introduction
 
-The [Maven Analytics dataset](https://mavenanalytics.io/data-playground/global-electronics-retailer) covers January 1, 2016 through February 20, 2021. Revenue and gross profit are estimated from product list prices and costs. The Store Performance page uses 2020, the latest complete calendar year in the dataset.
+This project analyzes the performance of a fictional global electronics retailer using PostgreSQL and Power BI. The objective was to build an end-to-end analytics workflow, transforming raw data into a structured database, developing SQL reporting views, and creating an interactive dashboard to explore sales performance, product profitability, customer behavior, delivery statistics, and store productivity.
 
-The goal of this project was to combine the skills I've gained from my previous 2 projects on SQL and Power BI into one project that answers the following business questions:
+Through these investigations, I aimed to identify meaningful business trends, evaluate performance across different areas of the business, and translate the findings into actionable recommendations.
 
 ### Business Questions
 
@@ -20,6 +20,8 @@ The goal of this project was to combine the skills I've gained from my previous 
 [View the Power BI report screenshots](#power-bi-report)
 
 ## Dataset Overview
+
+This project uses the [Maven Analytics dataset](https://mavenanalytics.io/data-playground/global-electronics-retailer) dataset which covers January 1, 2016 through February 20, 2021. Revenue and gross profit are estimated from product list prices and costs. The Store Performance page uses 2020, the latest complete calendar year in the dataset.
 
 The original files are in `csv_files/original_data/`.
 
@@ -248,21 +250,21 @@ The 65 eligible physical stores generated $7.13M in estimated 2020 revenue. Stor
 ## Key Findings
 
 - **Sales:**
-    - Physical-store orders fell from 7,077 in 2019 to 3,564 in 2020 while AOV stayed near $2,028.
+    - Declining physical-store sales: Physical-store orders fell from 7,077 in 2019 to 3,564 in 2020, a 49.6% decrease, while average order value remained around $2,028. The decline in estimated revenue was mainly associated with lower recorded order volume rather than reduced spending per order.
     - Estimated Revenue: $55.76M
     - Gross Profit: $32.66M
     - Margin: 58.6%
-    - 2019 led in orders (9,083) and estimated revenue ($18.26M).
+    - 2019 led in orders with an order count of 9,083 and an estimated revenue of $18.26M.
     - Average Order Value: $2,118
     - Number of Orders: 26.3K
     - Physical stores dominate online.
 - **Products**:
     - Computers lead by far at $11.28M gross profit, then Home Appliances at $6.30M.
     - Profit is concentrated — the top 10 products are 44.90% of TV and Video gross profit.
-- **Customers**:
-    - Only 9.12% repeat within 90 days,
-    - Among the 7,272 customers with 2 recorded orders, 48.38% spent more on their second order.
-    - Average first order $2,224.29 vs. $2,082.04 for second order, $142.25 difference.
+- **Customers**
+    - Of the 11,745 customers with a full 90-day observation window after their first purchase, 1,071 (9.12%) made another purchase within 90 days.
+    - Among the 7,272 customers with recorded values for their first two orders, 48.38% spent more on their second order.
+    - For those same 7,272 customers, the average first order was $2,224.29 and the average second order was $2,082.04, a decrease of $142.25.
 - **Delivery:**
     - 5,580 delivered online orders, 91.54% within 7 days.
     - 90th-percentile is 7 days in six countries, 8 days in Canada and the UK.
