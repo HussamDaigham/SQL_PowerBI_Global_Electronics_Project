@@ -2,8 +2,6 @@
 
 ## Introduction
 
-## Introduction
-
 This project analyzes the performance of a fictional global electronics retailer using PostgreSQL and Power BI. The objective was to build an end-to-end analytics workflow, transforming raw data into a structured database, developing SQL reporting views, and creating an interactive dashboard to explore sales performance, product profitability, customer behavior, delivery statistics, and store productivity.
 
 Through these investigations, I aimed to identify meaningful business trends, evaluate performance across different areas of the business, and translate the findings into actionable recommendations.
@@ -251,12 +249,12 @@ The 65 eligible physical stores generated $7.13M in estimated 2020 revenue. Stor
 
 - **Sales:**
     - Declining physical-store sales: Physical-store orders fell from 7,077 in 2019 to 3,564 in 2020, a 49.6% decrease, while average order value remained around $2,028. The decline in estimated revenue was mainly associated with lower recorded order volume rather than reduced spending per order.
-    - Estimated Revenue: $55.76M
-    - Gross Profit: $32.66M
-    - Margin: 58.6%
+    - Estimated Revenue: $55.76M.
+    - Gross Profit: $32.66M.
+    - Margin: 58.6%.
     - 2019 led in orders with an order count of 9,083 and an estimated revenue of $18.26M.
-    - Average Order Value: $2,118
-    - Number of Orders: 26.3K
+    - Average Order Value: $2,118.
+    - Number of Orders: 26.3K.
     - Physical stores dominate online.
 - **Products**:
     - Computers lead by far at $11.28M gross profit, then Home Appliances at $6.30M.
