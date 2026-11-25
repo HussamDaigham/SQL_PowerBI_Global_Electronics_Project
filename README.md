@@ -19,7 +19,7 @@ Through these investigations, I aimed to identify meaningful business trends, ev
 
 ## Dataset Overview
 
-This project uses the [Maven Analytics dataset](https://mavenanalytics.io/data-playground/global-electronics-retailer) dataset which covers January 1, 2016 through February 20, 2021. Revenue and gross profit are estimated from product list prices and costs. The Store Performance page uses 2020, the latest complete calendar year in the dataset.
+This project uses the [Maven Analytics dataset](https://mavenanalytics.io/data-playground/global-electronics-retailer) which covers January 1, 2016 through February 20, 2021. Revenue and gross profit are estimated from product list prices and costs. The Store Performance page uses 2020, the latest complete calendar year in the dataset.
 
 The original files are in `csv_files/original_data/`.
 
@@ -75,7 +75,7 @@ Sales cover **January 1, 2016 to February 20, 2021**: **26,326 orders**, **62,88
 | Analysis | `sql/05_Investigations/` | 9 scripts — exploratory queries behind the Key Findings, including the performance index |
 | Visualization | `power_bi/Global_Electronics_Dashboard.pbix` | Imports the reporting views and supporting tables, then uses model relationships and DAX measures to build the 5-page report |
 
-Run `sql/01` to `sql/04` in order to rebuild the database. `05_Investigations` is not required to rebuild it. However, running this optimization index query: [05_create_performance_index.sql](sql/05_Investigations/05_create_performance_index.sql) is recommended as it lowered the execution time from ~42 seconds to ~65 ms in my local test for one of our future investigations.
+Run `sql/01` to `sql/04` in order to rebuild the database. `05_Investigations` is not required to rebuild it. Before running the [90-day repeat purchase analysis](sql/05_Investigations/05.2_90_day_repeat_purchase_by_cohort.sql), add the [05_create_performance_index.sql](sql/05_Investigations/05_create_performance_index.sql) index. it cut that query's execution time from ~42 seconds to ~65 ms across a few local runs.
 
 The `images/` folder holds the 5 dashboard screenshots used in this README.
 
@@ -193,7 +193,7 @@ ON core.sales (customer_key, order_date);
 - Execution time reduced by approximately 99.84%
 - Query ran approximately 641 times faster
 
-The optimization preserved the original analytical logic while substantially improving query execution performance.
+These timings come from a few local runs, so treat them as an indication of the index's effect rather than a benchmark. The optimization preserved the original analytical logic while substantially improving query execution performance.
 
 ### Order Summary Validation
 
